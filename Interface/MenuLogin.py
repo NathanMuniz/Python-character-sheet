@@ -7,7 +7,7 @@ class MenuLogin():
 
     def login(self, index):
         ## Consulta no banco de dado, e retornará o usuário 
-        ## Esse usuário será passado para o MeuCharacter e retonará
+        ## Esse usuário será passado para o MenuCharacter e retonará
         pass
 
     def get_users(self):
