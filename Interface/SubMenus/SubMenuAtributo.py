@@ -6,10 +6,13 @@ class SubMenuAtributo():
         print(50 * "-")
         print('This is the SubMenuTeste')
         print(50 * "-")
+
+    def show_pericias(self):
+        print("Velocidade - 23")
     
     def get_name(self):
         return self.name
     
     def open_menu(self):
-        self.top()
+        return self.top(), self.show_pericias()
 
