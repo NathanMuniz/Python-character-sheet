@@ -1,9 +1,9 @@
-from factoryconnection import  FactoryConnection
+from Database.Factory import FactoryConnection
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, Text
 
 
-factory = FactoryConnection()
+factory = FactoryConnection.FactoryConnection()
 engine = factory.connect()
 
 Base = declarative_base()
@@ -18,5 +18,5 @@ class Character(Base):
     def __repr__(self):
         return f"Id: {self._id} Name: {self.name}"
 
-#Base.metadata.create_all(engine)
 
+#Base.metadata.create_all(engine)

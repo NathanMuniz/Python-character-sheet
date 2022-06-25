@@ -1,12 +1,11 @@
 from Interface import MenuCharacter
 from Interface.SubMenus import SubMenuAtributo
 from Interface.SubMenus import SubMenuPericias
-from Interface import  MenuLogin 
+from Interface import MenuLogin
 from time import sleep
-from database import domain
 
 
-
+"""
 ##LOGIN
 menu_login = MenuLogin.MenuLogin()
 menu_login.menu()
@@ -40,3 +39,4 @@ while True:
 
 menu_character.open_sub_menu(enter)
 
+"""

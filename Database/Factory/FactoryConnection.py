@@ -3,7 +3,6 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 
-
 class FactoryConnection():
     
     def connect(self):
