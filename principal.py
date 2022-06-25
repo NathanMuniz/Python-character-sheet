@@ -1,10 +1,33 @@
 from Interface import MenuCharacter
 from Interface.SubMenus import SubMenuAtributo
 from Interface.SubMenus import SubMenuPericias
-from Interface import  MenuLogin 
+from Interface import MenuLogin
 from time import sleep
 
+from Database.Repository import CharacterRepository
+from Database.Factory.FactoryConnection import FactoryConnection
+from Database.Entity.Character import Character
 
+factory = FactoryConnection()
+sn = factory.create_session()
+characterRepo = CharacterRepository.CharacterRepository()
+
+try:
+    ct = Character(name="Rogan")
+    new_character = characterRepo.new_character(ct, sn)
+    sn.commit()
+    print("New Note created")
+except:
+    sn.rollback()
+    raise
+finally:
+    sn.close()
+
+
+
+
+
+"""
 ##LOGIN
 menu_login = MenuLogin.MenuLogin()
 menu_login.menu()
@@ -17,14 +40,14 @@ while True:
         print("LOADING...")
         sleep(4)
         break
-user = menu_login.Login(choice)
+character = menu_login.Login(choice)
 
 
 
 
 
 ## Menu Principal
-menu_character = MenuCharacter.MenuCharacter(user)
+menu_character = MenuCharacter.MenuCharacter(character)
 menu_character.top()
 menu_character.add_sub_menu(SubMenuAtributo.SubMenuAtributo(), SubMenuPericias.SubMenuPericias())
 menu_character.show_sub_menu()
@@ -38,3 +61,4 @@ while True:
 
 menu_character.open_sub_menu(enter)
 
+"""
