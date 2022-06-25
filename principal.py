@@ -4,6 +4,28 @@ from Interface.SubMenus import SubMenuPericias
 from Interface import MenuLogin
 from time import sleep
 
+from Database.Repository import CharacterRepository
+from Database.Factory.FactoryConnection import FactoryConnection
+from Database.Entity.Character import Character
+
+factory = FactoryConnection()
+sn = factory.create_session()
+characterRepo = CharacterRepository.CharacterRepository()
+
+try:
+    ct = Character(name="Rogan")
+    new_character = characterRepo.new_character(ct, sn)
+    sn.commit()
+    print("New Note created")
+except:
+    sn.rollback()
+    raise
+finally:
+    sn.close()
+
+
+
+
 
 """
 ##LOGIN
