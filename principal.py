@@ -3,6 +3,8 @@ from Interface.SubMenus import SubMenuAtributo
 from Interface.SubMenus import SubMenuPericias
 from Interface import  MenuLogin 
 from time import sleep
+from database import domain
+
 
 
 ##LOGIN
@@ -17,14 +19,14 @@ while True:
         print("LOADING...")
         sleep(4)
         break
-user = menu_login.Login(choice)
+character = menu_login.Login(choice)
 
 
 
 
 
 ## Menu Principal
-menu_character = MenuCharacter.MenuCharacter(user)
+menu_character = MenuCharacter.MenuCharacter(character)
 menu_character.top()
 menu_character.add_sub_menu(SubMenuAtributo.SubMenuAtributo(), SubMenuPericias.SubMenuPericias())
 menu_character.show_sub_menu()

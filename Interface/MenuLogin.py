@@ -1,7 +1,7 @@
 class MenuLogin():
 
     def __init__(self):
-        self.user_list = []
+        self.character_list = []
 
 
 
@@ -10,14 +10,14 @@ class MenuLogin():
         ## Esse usuário será passado para o MenuCharacter e retonará
         pass
 
-    def get_users(self):
-        self.user_list = ["User 1", "User 2", "User 3"]
-        return self.user_list
+    def get_characters(self):
+        self.character_list = ["Character 1", "Character 2", "Character 3"]
+        return self.character_list
 
-    def show_user(self):
+    def show_character(self):
         ## Consulta no db, mostra nome de todos usuários 
-        for user in self.user_list:
-            print(user)
+        for character in self.character_list:
+            print(character)
 
         
 
@@ -25,7 +25,7 @@ class MenuLogin():
         print('-=' * 50)
         print('LOGIN PAGE')
         print('-=' * 50)
-        self.show_user()
+        self.show_character()
         print('-=' * 50)
        
 
