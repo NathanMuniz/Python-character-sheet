@@ -8,48 +8,25 @@ from Database.Repository import CharacterRepository
 from Database.Factory.FactoryConnection import FactoryConnection
 from Database.Entity.Character import Character
 
+"""
 factory = FactoryConnection()
 sn = factory.create_session()
 characterRepo = CharacterRepository.CharacterRepository()
 
-try:
-    ct = Character(name="Rogan")
-    new_character = characterRepo.new_character(ct, sn)
-    sn.commit()
-    print("New Note created")
-except:
-    sn.rollback()
-    raise
-finally:
-    sn.close()
-
-
-
-
-
+character = characterRepo.search_id(1, sn)
+print(character.name)
 """
+
+
+
+
 ##LOGIN
 menu_login = MenuLogin.MenuLogin()
-menu_login.menu()
-choice = -1
-while True:
-    if choice > len(menu_login.get_users()) or choice < 0:
-        choice = int(input('What Character do you want: '))
-    else:
-        print(len(menu_login.get_users()))
-        print("LOADING...")
-        sleep(4)
-        break
-character = menu_login.Login(choice)
-
-
-
-
 
 ## Menu Principal
-menu_character = MenuCharacter.MenuCharacter(character)
+menu_character = MenuCharacter.MenuCharacter()
 menu_character.top()
-menu_character.add_sub_menu(SubMenuAtributo.SubMenuAtributo(), SubMenuPericias.SubMenuPericias())
+menu_character.add_sub_menu(menu_login)
 menu_character.show_sub_menu()
 enter = -1
 
@@ -57,8 +34,10 @@ while True:
     if(enter < 0 or enter > len(menu_character.sub_menus) - 1):
         enter = int(input('What menu do you wanna in: '))
     else: 
+        menu_character.open_sub_menu(enter)
         break
 
-menu_character.open_sub_menu(enter)
 
-"""
+
+
+

@@ -12,3 +12,6 @@ class CharacterQuery():
         character = session.query(Character).all()
         return character
     
+    def id_search(self, character_id, session):
+        character = session.query(Character).filter(Character._id == character_id).first()
+        return character
