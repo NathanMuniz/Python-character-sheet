@@ -1,14 +1,14 @@
 class MenuCharacter():
 
-    def __init__(self, character):
+    def __init__(self):
         self.sub_menus = []
-        self.character = character
+
         
     
     def top(self):
         print('RPG')
         print('-' * 50)
-        print(f'Pefil do Investigado {self.character.name}')
+        print(f'Menu principal')
         print('-' * 50)
     
     def add_sub_menu(self, *sub_list):
@@ -28,6 +28,7 @@ class MenuCharacter():
                 menu.open_sub_menu()
         else: 
             return self.sub_menus[pos].open_menu()
+
         
 
 
